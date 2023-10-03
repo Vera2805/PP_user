@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     public void deleteUser(String mail) {
-        //  User user = entityManager.merge(getUser(mail));
+
         User user = getUser(mail);
         entityManager.remove(user);
     }
