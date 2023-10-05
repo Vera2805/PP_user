@@ -31,10 +31,10 @@ public class UserController {
     }
 
     @RequestMapping("/edit")
-    public String editUserForm(ModelMap model, @RequestParam String mail) {
-        User user = userService.getUser(mail);
+    public String editUserForm(ModelMap model, @RequestParam Long id) {
+        User user = userService.getUser(id);
         model.put("user", user);
-        model.addAttribute("email", mail);
+        model.addAttribute("email", id);
         return "edit";
     }
 
@@ -52,9 +52,9 @@ public class UserController {
     }
 
     @RequestMapping("/delete")
-    public String deleteUserForm(@RequestParam String mail) {
+    public String deleteUserForm(@RequestParam Long id) {
 
-        userService.deleteUser(mail);
+        userService.deleteUser(id);
         return "redirect:/";
     }
 }

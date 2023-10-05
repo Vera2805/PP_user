@@ -23,9 +23,10 @@ public class UserDaoImpl implements UserDao {
         entityManager.persist(user);
     }
 
-    public void deleteUser(String mail) {
 
-        User user = getUser(mail);
+    public void deleteUser(Long id) {
+
+        User user = getUser(id);
         entityManager.remove(user);
     }
 
@@ -33,17 +34,13 @@ public class UserDaoImpl implements UserDao {
         return entityManager.createQuery("select u from User u", User.class).getResultList();
     }
 
-    public void updateUser(String email, String name, String lastname, String mail) {
-        User user = getUser(email);
-        user.setName(name);
-        user.setLastname(lastname);
-        user.setMail(mail);
+    public void updateUser(User user) {
+
         entityManager.merge(user);
     }
 
-    public User getUser(String mail) {
-        TypedQuery<User> q = entityManager.createQuery("select u from User u where u.mail = :mail", User.class);
-        q.setParameter("mail", mail);
-        return q.getResultList().stream().findAny().orElse(null);
+    public User getUser(Long id) {
+
+        return entityManager.find(User.class, id);
     }
 }
