@@ -85,6 +85,7 @@ public class WebConfig implements WebMvcConfigurer {
     private Properties createHibernateProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "update");
+        properties.setProperty("hibernate.show_sql", "true");
         properties.setProperty("javax.persistence.jdbc.user", "root");
         properties.setProperty("javax.persistence.jdbc.password", "root");
         properties.setProperty("javax.persistence.jdbc.driver", "com.mysql.jdbc.Driver");

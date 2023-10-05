@@ -19,10 +19,20 @@ public class User {
     public User() {
     }
 
-    public User(String name, String lastname, String mail) {
+    public User(Long id, String name, String lastname, String mail) {
+        this.id = id;
         this.name = name;
         this.lastname = lastname;
         this.mail = mail;
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {

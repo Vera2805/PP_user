@@ -21,7 +21,7 @@
         <td th:text="${users.name}"></td>
         <td th:text="${users.lastname}"></td>
         <td th:text="${users.mail}"></td>
-        <td><a th:href="@{/edit(mail=${users.mail})}">Изменить</a>     <a th:href="@{/delete(mail=${users.mail})}">Удалить</a></td>
+        <td><a th:href="@{/edit(id=${users.id})}">Изменить</a>     <a th:href="@{/delete(id=${users.id})}">Удалить</a></td>
 
     </tr>
     </tbody>

@@ -34,7 +34,7 @@ public class UserController {
     public String editUserForm(ModelMap model, @RequestParam Long id) {
         User user = userService.getUser(id);
         model.put("user", user);
-        model.addAttribute("email", id);
+       // model.addAttribute("id", id);
         return "edit";
     }
 
